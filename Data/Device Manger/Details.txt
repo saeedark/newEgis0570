@@ -1,0 +1,255 @@
+Device description:
+EgisTec Touch Fingerprint Sensor
+
+Device instance path:
+USB\VID_1C7A&PID_0570\5&1DBD1FA0&0&9
+
+Hardware Ids:
+USB\VID_1C7A&PID_0570&REV_1041
+USB\VID_1C7A&PID_0570
+
+Compatible Ids:
+USB\Class_FF&SubClass_00&Prot_00
+USB\Class_FF&SubClass_00
+USB\Class_FF
+
+Capabilities:
+00000000
+
+Status:
+0180200A
+DN_DRIVER_LOADED
+DN_STARTED
+DN_DISABLEABLE
+DN_NT_ENUMERATOR
+DN_NT_DRIVER
+
+Problem code:
+00000000
+
+Config flags:
+00000000
+
+Class:
+Biometric
+
+Class Guid:
+{53d29ef7-377c-4d14-864b-eb3a85769359}
+
+Inf name:
+oem3.inf
+
+Driver date:
+4/13/2017
+
+Driver version:
+3.5.3.10
+
+Provider:
+Egis Technology Inc.
+
+Inf section:
+Biometric_Install.NT
+
+Included Infs:
+WINUSB.INF
+
+Matching device id:
+USB\VID_1C7A&PID_0570
+
+Rank of driver:
+00FE0001
+
+Service:
+WUDFRd
+
+Lower filters:
+WinUsb
+
+Address:
+00000009
+
+BIOS device name:
+\_SB.PCI0.XHC.RHUB.HS09
+
+Base container Id:
+{00000000-0000-0000-ffff-ffffffffffff}
+
+Bus number:
+00000000
+
+Bus type Guid:
+{9d7debbc-c85d-11d1-9eb4-006008c3a19a}
+
+Characteristics:
+00000100
+FILE_DEVICE_SECURE_OPEN
+
+Configuration Id:
+oem3.inf:USB\VID_1C7A&PID_0570,Biometric_Install.NT
+
+Container Id:
+{00000000-0000-0000-ffff-ffffffffffff}
+
+Device stack:
+\Driver\WudfRd
+\Driver\WINUSB
+\Driver\ACPI
+\Driver\USBHUB3
+
+Display name:
+EgisTec Touch Fingerprint Sensor
+
+Driver description:
+EgisTec Touch Fingerprint Sensor
+
+Driver key:
+{53d29ef7-377c-4d14-864b-eb3a85769359}\0000
+
+Driver node strong name:
+oem3.inf:8ec90eb4730dd731:Biometric_Install.NT:3.5.3.10:USB\VID_1C7A&PID_0570
+
+Enumerator:
+USB
+
+Exclusive:
+<true>
+
+First install date:
+8/16/2020 3:23:39 PM
+
+Has problem:
+<false>
+
+Icon:
+C:\Windows\System32\drivers\UMDF\Application.ico
+
+In root container:
+<true>
+
+Install date:
+8/16/2020 3:23:39 PM
+
+Install state:
+00000000
+
+Is Connected:
+<true>
+
+Is present:
+<true>
+
+Is reboot required:
+<false>
+
+Last arrival date:
+8/22/2020 9:57:00 AM
+
+Last known parent:
+USB\ROOT_HUB30\4&bee47d&0&0
+
+legacy bus type:
+0000000F
+
+Location information:
+Port_#0009.Hub_#0001
+
+Location paths:
+PCIROOT(0)#PCI(1400)#USBROOT(0)#USB(9)
+ACPI(_SB_)#ACPI(PCI0)#ACPI(XHC_)#ACPI(RHUB)#ACPI(HS09)
+
+Manufacturer:
+Egis Technology Inc.
+
+Migration rank:
+00 00 00 00 00 00 00 00 
+
+Parent:
+USB\ROOT_HUB30\4&bee47d&0&0
+
+Pyysical Device Locatoin:
+82 00 00 00 00 00 00 00 30 1C 80 04 00 00 00 00 00 00 00 00 
+
+Physical Device Object name:
+\Device\USBPDO-3
+
+Power data:
+"""
+Current power state:
+D2
+
+Power capabilities:
+0000007F
+PDCAP_D0_SUPPORTED
+PDCAP_D1_SUPPORTED
+PDCAP_D2_SUPPORTED
+PDCAP_D3_SUPPORTED
+PDCAP_WAKE_FROM_D0_SUPPORTED
+PDCAP_WAKE_FROM_D1_SUPPORTED
+PDCAP_WAKE_FROM_D2_SUPPORTED
+
+Power state mappings:
+S0 -> D0
+S1 -> D2
+S2 -> D2
+S3 -> D2
+S4 -> D2
+S5 -> D3
+"""
+
+Removal policy:
+00000001
+
+Removal policy default:
+00000001
+
+Reported device Ids hash:
+C7C77B4F
+
+safe removal required:
+<false>
+
+Security:
+01 00 04 90 00 00 00 00 00 00 00 00 00 00 00 00 14 00 00 00 
+02 00 34 00 02 00 00 00 00 00 18 00 00 00 00 10 01 02 00 00 
+00 00 00 05 20 00 00 00 20 02 00 00 00 00 14 00 00 00 00 10 
+01 01 00 00 00 00 00 05 12 00 00 00 
+
+Siblings:
+USB\VID_8087&PID_0A2A\5&1dbd1fa0&0&6
+USB\VID_0BDA&PID_0129\20100201396000000
+USB\VID_0BDA&PID_5621\200901010001
+
+{3464f7a4-2444-40b1-980a-e0903cb6d912}[10]:
+00000003
+
+{80497100-8c73-48b9-aad9-ce387e19c56e}[6]:
+00000000
+
+{83da6326-97a6-4088-9453-a1923f573b29}[23]:
+WinUsb
+
+{a8b865dd-2e3d-4094-ad97-e593a70c75d6}[26]:
+<false>
+
+Class description:
+Biometric
+
+Class icon path:
+%SystemRoot%\System32\SysClass.DLL,-201
+
+
+Class name:
+Biometric devices
+
+Display name:
+Biometric devices
+
+No install class
+<true>
+
+{6a3433f4-5626-40e8-a9b9-dbd9ecd2884b}[4]:
+<true>
+
+{6a3433f4-5626-40e8-a9b9-dbd9ecd2884b}[6]:
+<true>

@@ -1,0 +1,4 @@
+Device type: Biometric devices
+Manufacture: Egis Technology Inc.
+Location: Port_#0009.Hub_#0001
+Device status: This device is working properly.

@@ -1,0 +1,43 @@
+Timestamp: 8/16/2020 3:22:30 PM
+Description: Device install requested
+Information: Device USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9 requires further installation.
+
+Timestamp: 8/16/2020 3:22:34 PM
+Description: Device install requested
+Information: Device USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9 requires further installation.
+
+Timestamp: 8/16/2020 3:23:39 PM
+Description: Device migrated
+Information: Device USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9 was migrated.
+
+            Last Device Instance Id: USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9
+            Class Guid: {53d29ef7-377c-4d14-864b-eb3a85769359}
+            Location Path:
+            Migration Rank: 0x0
+            Present: true
+
+Timestamp: 8/16/2020 3:23:39 PM
+Description: Device configured(oem79.inf)
+Information: Device USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9 was configured.
+
+            Driver Name: oem79.inf
+            Class Guid: {53d29ef7-377c-4d14-864b-eb3a85769359}
+            Driver Date: 04/13/2017
+            Driver Version: 3.5.3.10
+            Driver Provider: Egis Technology Inc.
+            Driver Section: Biometric_Install.NT
+            Driver Rank: 0xFE0001
+            Matching Device Id: USB\VID_1C7A&PID_0570
+            Outranked Drivers:
+            Device Updated: false
+            Parent Device: USB\ROOT_HUB30\4&bee47d&0&0
+
+Timestamp: 8/16/2020 3:23:39 PM
+Description: Device started(WUDFRd)
+Information: Device USB\VID_1C7A&PID_0570\5&1dbd1fa0&0&9 was started.
+
+            Driver Name: oem79.inf
+            Class Guid: {53d29ef7-377c-4d14-864b-eb3a85769359}
+            Service: WUDFRd
+            Lower Filters: WinUsb
+            Upper Filters:

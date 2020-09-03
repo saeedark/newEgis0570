@@ -1,0 +1,4 @@
+Driver Provider: Egis Technology Inc.
+Driver Date: 4/13/2017
+Driver Version: 3.5.3.10
+Digital Signer: Microsoft Windows Hardware Compatibility Publisher
