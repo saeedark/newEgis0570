@@ -7,6 +7,7 @@
 #define PKT_TYPE_INIT	 0
 #define PKT_TYPE_REPEAT	 1
 
+/* Struct */
 struct _FpDeviceEgis0570
 {
   FpImageDevice 			parent;
@@ -24,6 +25,10 @@ G_DECLARE_FINAL_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FPI, DEVICE_EGIS057
                       FpImageDevice);
 G_DEFINE_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FP_TYPE_IMAGE_DEVICE);
 
+/*
+ * SSM States
+ */
+
 enum sm_states
 {
 	SM_START,
@@ -36,7 +41,7 @@ enum sm_states
 };
 
 static void 
-state_complete(Fpi_ssm *ssm, gboolean img_free)
+state_complete(Fpi_ssm *ssm, FpDevice *dev, gboolean img_free)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
@@ -102,6 +107,64 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 	}
 }
 
+/*
+ * Finger check
+ */
+
+static void 
+fcheck_run_state(FpiSsm *ssm, FpDevice *dev)
+{
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	ssm_run_state(ssm);
+
+	switch (fpi_ssm_get_cur_state (ssm))
+	{
+		case SM_START:
+			dev -> pkt_type = PKT_TYPE_REPEAT;
+			break;
+
+		case SM_DATA_PROC:
+			if (finger_status(dev -> img)) //todo
+			{
+				fpi_image_device_report_finger_status(dev, TRUE);
+				g_object_unref (self -> capture_img);
+				self -> img = NULL;
+				fpi_ssm_next_state(ssm);
+			}
+			else
+				fpi_ssm_jump_to_state(ssm, SM_START);
+			break;
+
+		default:
+      		g_assert_not_reached ();
+	}
+	
+}
+
+static void 
+fcheck_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
+{
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	state_complete(ssm, dev, TRUE); 
+
+	if (self -> stop == FALSE)
+		capture_start(dev); //todo
+}
+
+static void 
+fcheck_start(FpDevice *dev)
+{
+	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), fcheck_run_state, LOOP_NUM_STATES);
+
+	fpi_ssm_start(ssm, fcheck_complete);
+}
+
+/*
+ * Activation
+ */
+
 static void
 activation_run_states (FpiSsm *ssm, FpDevice *dev)
 {
@@ -129,14 +192,29 @@ activation_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
-	state_complete(ssm, TRUE);
+	state_complete(ssm, dev, TRUE);
 
 	if (self -> stop == FALSE)
-		fcheck_start(dev); //todo
+		fcheck_start(dev); 
 	
 	fpi_image_device_activate_complete (FP_IMAGE_DEVICE (dev), error);
 }
 
+static void
+dev_activate (FpImageDevice *dev)
+{
+  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+  FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), activation_run_states, SM_STATES_NUM);
+
+  self -> stop = FALSE;
+  fpi_ssm_start (ssm, activation_complete);
+  
+  fpi_image_device_activate_complete (dev, NULL);
+}
+
+/*
+ * Opening
+ */
 
 static void
 dev_init (FpImageDevice *dev)
@@ -155,6 +233,10 @@ dev_init (FpImageDevice *dev)
   fpi_image_device_open_complete (dev, error);
 }
 
+/*
+ * Closing
+ */
+
 static void
 dev_deinit (FpImageDevice *dev)
 {
@@ -165,17 +247,9 @@ dev_deinit (FpImageDevice *dev)
   fpi_image_device_close_complete (dev, error);
 }
 
-static void
-dev_activate (FpImageDevice *dev)
-{
-  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
-  FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), activation_run_states, SM_STATES_NUM);
-
-  self -> stop = FALSE;
-  fpi_ssm_start (ssm, activation_complete);
-  
-  fpi_image_device_activate_complete (dev, NULL);
-}
+/*
+ * Deactivation
+ */
 
 static void
 dev_deactivate (FpImageDevice *dev)
@@ -187,6 +261,10 @@ dev_deactivate (FpImageDevice *dev)
   else
     fpi_image_device_deactivate_complete (dev, NULL);
 }
+
+/*
+ * Driver data
+ */
 
 static const FpIdEntry id_table[] = {
 	{ .vid = EGIS0570_VID, .pid = EGIS0570_PID, }, 
