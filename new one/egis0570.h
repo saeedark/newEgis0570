@@ -6,8 +6,8 @@
  * Device data
  */
 
-#define EGIS0570_VID 0x1c7a
-#define EGIS0570_PID 0x0570
+#define EGIS0570_VID 0x1c7a  /* Vendor  */
+#define EGIS0570_PID 0x0570  /* Product */
 
 #define EGIS0570_CONF 1
 #define EGIS0570_INTF 0
