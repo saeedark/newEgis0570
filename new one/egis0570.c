@@ -108,6 +108,56 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 }
 
 /*
+ * Capture
+ */
+
+static void 
+capture_run_state(FpiSsm *ssm, FpDevice *dev)
+{
+	FpImageDevice *imgdev = FP_IMAGE_DEVICE (device);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	ssm_run_state(ssm);
+
+	switch (fpi_ssm_get_cur_state (ssm))
+	{
+		case SM_START:
+			dev -> pkt_type = PKT_TYPE_REPEAT;
+			break;
+
+		case SM_DATA_PROC:
+			FpImage *capture_img = self -> img;
+			fpi_image_device_report_finger_status (imgdev, FALSE);
+			fpi_image_device_image_captured (imgdev, capture_img);
+			fpi_ssm_next_state(ssm);
+			break;
+
+		default:
+      		g_assert_not_reached ();
+	}
+	
+}
+
+static void 
+capture_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
+{
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	state_complete(ssm, dev, FALSE); 
+
+	if (self -> stop == FALSE)
+		fcheck_start(dev); 
+}
+
+static void 
+capture_start(FpDevice *dev)
+{
+	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), capture_run_state, SM_STATES_NUM);
+
+	fpi_ssm_start(ssm, capture_complete);
+}
+
+/*
  * Finger check
  */
 
@@ -156,7 +206,7 @@ fcheck_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
 static void 
 fcheck_start(FpDevice *dev)
 {
-	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), fcheck_run_state, LOOP_NUM_STATES);
+	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), fcheck_run_state, SM_STATES_NUM);
 
 	fpi_ssm_start(ssm, fcheck_complete);
 }
