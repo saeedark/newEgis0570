@@ -114,7 +114,8 @@ static unsigned char init_pkts2[][EGIS0570_PKTSIZE] =
  * Two continuous image in this 5 images may have time delay of less than 20ms
  */
 
-#define EGIS0570_IMGWIDTH  114
+#define EGIS0570_IMGSIZE 6498
+#define EGIS0570_IMGWIDTH 114
 #define EGIS0570_IMGHEIGHT 57
 #define EGIS0570_IMGCOUNT 5
 
@@ -142,5 +143,8 @@ static unsigned char repeat_pkts[][EGIS0570_PKTSIZE] =
  */
 
 #define EGIS0570_BZ3_THRESHOLD 10  
+
+#define EGIS0570_MAX_MIN 120
+#define EGIS0570_MIN_FINGER_PRESENT_AVG 130
 
 #endif

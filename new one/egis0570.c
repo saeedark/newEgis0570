@@ -26,6 +26,63 @@ G_DECLARE_FINAL_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FPI, DEVICE_EGIS057
 G_DEFINE_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FP_TYPE_IMAGE_DEVICE);
 
 /*
+ * Service
+ */
+
+static gboolean 
+is_last_pkt(FpDevice *dev)
+{
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	int type = egdev -> pkt_type;
+	int num = egdev -> pkt_num;
+	
+	gboolean r;
+	
+	r = ((type == PKT_TYPE_INIT) && (num == (EGIS0570_INIT_TOTAL - 1)));
+	r |= ((type == PKT_TYPE_REPEAT) && (num == (EGIS0570_REPEAT_TOTAL - 1)));
+	
+	return r;
+}
+
+static int 
+finger_status(FpImage * img)
+{
+	size_t total[5] = {0, 0, 0, 0, 0};
+	size_t max_total_value = 0;
+	int max_total_id = 0;
+	unsigned char min, max;
+	min = max = img -> data[0];
+
+	for (size_t k = 0; k < EGIS0570_IMGCOUNT; ++k)
+	{
+		for (size_t i = (k * EGIS0570_IMGSIZE); i < ((k + 1) * EGIS0570_IMGSIZE); ++i)
+		{
+			total[k] += img -> data[i];
+
+			if (img -> data[i] < min)
+				min = img -> data[i];
+
+			if (img -> data[i] > max)
+				max = img -> data[i];
+		}
+
+		if (total[k] > max_total_value):
+			max_total_id = k;
+	}
+
+	unsigned char avg = total[max_total_id] / EGIS0570_IMGSIZE;
+
+	int result  = -1;
+	if ((avg > EGIS0570_MIN_FINGER_PRESENT_AVG) && (min < EGIS0570_MAX_MIN)) /* ReThink on values */
+		result = max_total_id;
+
+	fp_dbg("Finger status (min, max, biggest avg) : %d : %d - %d", min, max, avg);
+
+	return result;
+}
+
+/*
  * SSM States
  */
 
@@ -45,20 +102,21 @@ state_complete(Fpi_ssm *ssm, FpDevice *dev, gboolean img_free)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
-	int r = ssm -> error;
-
-	fpi_ssm_free(ssm);
+	GError * error = fpi_ssm_get_error (ssm);
 	
 	if (img_free)
 		g_object_unref (self -> capture_img);
 	self -> img = NULL;
 	self -> running = FALSE;
 	self -> retry = FALSE;
-	if (r)
-		fpi_imgdev_session_error(dev, r);
+
+	if (error)
+		fpi_image_device_session_error(dev, error);
 
 	if (self -> stop)
-		fpi_imgdev_deactivate_complete(dev);
+		fpi_image_device_deactivate_complete(dev);
+
+	fpi_ssm_free(ssm);
 }
 
 static void 
@@ -175,7 +233,8 @@ fcheck_run_state(FpiSsm *ssm, FpDevice *dev)
 			break;
 
 		case SM_DATA_PROC:
-			if (finger_status(dev -> img)) //todo
+			int finger_state = finger_status(dev -> img);
+			if (finger_state + 1) 
 			{
 				fpi_image_device_report_finger_status(dev, TRUE);
 				g_object_unref (self -> capture_img);
