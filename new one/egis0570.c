@@ -133,15 +133,15 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 
 		case SM_REQ:
 			if (self -> pkt_type == PKT_TYPE_INIT)
-				send_cmd_req(ssm, self, init_pkts[self -> pkt_num]); //todo
+				send_cmd_req(ssm, dev, init_pkts[self -> pkt_num]); //todo
 			else
-				send_cmd_req(ssm, self, repeat_pkts[self -> pkt_num]); //todo
+				send_cmd_req(ssm, dev, repeat_pkts[self -> pkt_num]); //todo
 			break;
 
 		case SM_RESP:
 			if (is_last_pkt(self) == FALSE) //todo
 			{
-				recv_cmd_resp(ssm); //todo
+				recv_cmd_resp(ssm, dev); //todo
 				++(self -> pkt_num);
 			}
 			else
@@ -168,32 +168,90 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
  * Device communication
  */
 
-static void 
-cmd_req_cb(struct libusb_transfer *transfer)
+static void
+recv_data_resp(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
 {
-	struct fpi_ssm * ssm = transfer -> user_data;
+	FpImageDevice *self = FP_IMAGE_DEVICE (dev);
+	FpDeviceEgis0570 *img_self = FPI_DEVICE_EGIS0570 (dev);
 
-	if (transfer->status != LIBUSB_TRANSFER_COMPLETED)
+	if (error)
 	{
-		fp_err("Transfer is not completed");
-		fpi_ssm_mark_aborted(ssm, -EIO);
-		goto out;
+		fp_dbg("request is not completed, %s", error -> message);
+		fpi_ssm_mark_failed (transfer -> ssm, error);
+		return;
 	}
-	
-	fpi_ssm_next_state(ssm);
-out:
-	libusb_free_transfer(transfer);
+
+	img_self -> img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT * EGIS0570_IMGCOUNT);
+  	FpImage *capture_img = img_self -> img;
+  	memcpy (capture_img -> data, transfer -> buffer, EGIS0570_IMGSIZE);
+
+
+	fpi_ssm_next_state (transfer -> ssm);
+}
+
+static void
+recv_data_resp(FpiSsm *ssm, FpDevice *dev)
+{
+	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
+
+	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_INPSIZE3);
+	transfer->ssm = ssm;
+
+	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_resp_cb, NULL);
+}
+
+static void
+cmd_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
+{
+	if (!error)
+	{	
+		fpi_ssm_jump_to_state (transfer -> ssm, SM_RESP_CB);
+	}
+	else
+	{
+		fp_dbg ("bad answer, %s", error->message);
+		fpi_ssm_mark_failed (transfer -> ssm, error);	
+	}
+}
+
+static void 
+recv_cmd_resp(FpiSsm *ssm, FpDevice *dev)
+{
+	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
+
+	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_PKTSIZE);
+	transfer->ssm = ssm;
+
+	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_resp_cb, NULL);
+
+}
+
+static void 
+cmd_req_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
+{
+	if (!error)
+	{
+		fpi_ssm_next_state (transfer -> ssm);
+	}
+	else
+	{
+		fp_dbg ("request is not completed, %s", error->message);
+		fpi_ssm_mark_failed (transfer->ssm, error);
+		return;
+	}
+
+
 }
 
 static void 
 send_cmd_req(FpiSsm *ssm, FpDevice *dev, unsigned char *pkt)
 {
 	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
-	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
 	fpi_usb_transfer_fill_bulk_full (transfer, EGIS0570_EPOUT, pkt, EGIS0570_PKTSIZE, NULL);
 	transfer -> ssm = ssm;
 	transfer -> short_is_error = TRUE;
+
 	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_req_cb, NULL);
 }
 

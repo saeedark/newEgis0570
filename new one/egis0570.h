@@ -108,8 +108,7 @@ static unsigned char init_pkts2[][EGIS0570_PKTSIZE] =
 
 #define EGIS0570_INPSIZE 32512 
 
-/* Not actually used anywhere 
- * 5 image with captured in different time of size 114 * 57 = 6498
+/* 5 image with captured in different time of size 114 * 57 = 6498
  * 5 * 6498 = 32490 plus 22 extra unrecognized char size data 
  * Two continuous image in this 5 images may have time delay of less than 20ms
  */
