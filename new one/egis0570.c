@@ -10,19 +10,18 @@
 /* Struct */
 struct _FpDeviceEgis0570
 {
-  FpImageDevice 			parent;
+  FpImageDevice					parent;
 
-  gboolean					running;
-  gboolean					stop;
-  gboolean 					retry;
+	gboolean					running;
+	gboolean					stop;
+	gboolean					retry;
 
-  int 						pkt_num;
-  int 						pkt_type;
+	int							pkt_num;
+	int							pkt_type;
 
-  FpImage      			   *img;
+	FpImage						*img;
 };
-G_DECLARE_FINAL_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FPI, DEVICE_EGIS0570,
-                      FpImageDevice);
+G_DECLARE_FINAL_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FPI, DEVICE_EGIS0570, FpImageDevice);
 G_DEFINE_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FP_TYPE_IMAGE_DEVICE);
 
 /*
@@ -134,9 +133,9 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 
 		case SM_REQ:
 			if (self -> pkt_type == PKT_TYPE_INIT)
-				send_cmd_req(ssm, init_pkts[self -> pkt_num]); //todo
+				send_cmd_req(ssm, self, init_pkts[self -> pkt_num]); //todo
 			else
-				send_cmd_req(ssm, repeat_pkts[self -> pkt_num]); //todo
+				send_cmd_req(ssm, self, repeat_pkts[self -> pkt_num]); //todo
 			break;
 
 		case SM_RESP:
@@ -161,8 +160,41 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 			break;
 
 		default:
-      		g_assert_not_reached ();
+			g_assert_not_reached ();
 	}
+}
+
+/*
+ * Device communication
+ */
+
+static void 
+cmd_req_cb(struct libusb_transfer *transfer)
+{
+	struct fpi_ssm * ssm = transfer -> user_data;
+
+	if (transfer->status != LIBUSB_TRANSFER_COMPLETED)
+	{
+		fp_err("Transfer is not completed");
+		fpi_ssm_mark_aborted(ssm, -EIO);
+		goto out;
+	}
+	
+	fpi_ssm_next_state(ssm);
+out:
+	libusb_free_transfer(transfer);
+}
+
+static void 
+send_cmd_req(FpiSsm *ssm, FpDevice *dev, unsigned char *pkt)
+{
+	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+
+	fpi_usb_transfer_fill_bulk_full (transfer, EGIS0570_EPOUT, pkt, EGIS0570_PKTSIZE, NULL);
+	transfer -> ssm = ssm;
+	transfer -> short_is_error = TRUE;
+	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_req_cb, NULL);
 }
 
 /*
@@ -172,7 +204,7 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 static void 
 capture_run_state(FpiSsm *ssm, FpDevice *dev)
 {
-	FpImageDevice *imgdev = FP_IMAGE_DEVICE (device);
+	FpImageDevice *imgdev = FP_IMAGE_DEVICE (dev);
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
 	ssm_run_state(ssm);
@@ -191,7 +223,7 @@ capture_run_state(FpiSsm *ssm, FpDevice *dev)
 			break;
 
 		default:
-      		g_assert_not_reached ();
+			g_assert_not_reached ();
 	}
 	
 }
@@ -246,7 +278,7 @@ fcheck_run_state(FpiSsm *ssm, FpDevice *dev)
 			break;
 
 		default:
-      		g_assert_not_reached ();
+			g_assert_not_reached ();
 	}
 	
 }
@@ -277,23 +309,23 @@ fcheck_start(FpDevice *dev)
 static void
 activation_run_states (FpiSsm *ssm, FpDevice *dev)
 {
-  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-  ssm_run_state(ssm, dev);
+	ssm_run_state(ssm, dev);
 
-  switch (fpi_ssm_get_cur_state (ssm))
-    {
-    case SM_START:
-      self -> pkt_type = PKT_TYPE_INIT;
-      break;
+	switch (fpi_ssm_get_cur_state (ssm))
+	{
+		case SM_START:
+			self -> pkt_type = PKT_TYPE_INIT;
+			break;
 
-    case SM_DATA_PROC:
-      fpi_ssm_next_state(ssm);
-      break;
+		case SM_DATA_PROC:
+			fpi_ssm_next_state(ssm);
+			break;
 
-    default:
-      g_assert_not_reached ();
-    }
+		default:
+			g_assert_not_reached ();
+	}
 }
 
 static void 
@@ -312,13 +344,13 @@ activation_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
 static void
 dev_activate (FpImageDevice *dev)
 {
-  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
-  FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), activation_run_states, SM_STATES_NUM);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), activation_run_states, SM_STATES_NUM);
 
-  self -> stop = FALSE;
-  fpi_ssm_start (ssm, activation_complete);
-  
-  fpi_image_device_activate_complete (dev, NULL);
+	self -> stop = FALSE;
+	fpi_ssm_start (ssm, activation_complete);
+
+	fpi_image_device_activate_complete (dev, NULL);
 }
 
 /*
@@ -328,18 +360,18 @@ dev_activate (FpImageDevice *dev)
 static void
 dev_init (FpImageDevice *dev)
 {
-  GError *error = NULL;
+	GError *error = NULL;
 
-  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-  g_usb_device_claim_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
+	g_usb_device_claim_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
 
-  self -> running = FALSE;
-  self -> stop	= FALSE;
-  self -> retry   = FALSE;
-  self -> img     = NULL;
+	self -> running = FALSE;
+	self -> stop	= FALSE;
+	self -> retry   = FALSE;
+	self -> img     = NULL;
 
-  fpi_image_device_open_complete (dev, error);
+	fpi_image_device_open_complete (dev, error);
 }
 
 /*
@@ -349,11 +381,11 @@ dev_init (FpImageDevice *dev)
 static void
 dev_deinit (FpImageDevice *dev)
 {
-  GError *error = NULL;
+	GError *error = NULL;
 
-  g_usb_device_release_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
+	g_usb_device_release_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
 
-  fpi_image_device_close_complete (dev, error);
+	fpi_image_device_close_complete (dev, error);
 }
 
 /*
@@ -363,12 +395,12 @@ dev_deinit (FpImageDevice *dev)
 static void
 dev_deactivate (FpImageDevice *dev)
 {
-  FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-  if (self -> running)
-    self -> stop = TRUE;
-  else
-    fpi_image_device_deactivate_complete (dev, NULL);
+	if (self -> running)
+		self -> stop = TRUE;
+	else
+		fpi_image_device_deactivate_complete (dev, NULL);
 }
 
 /*

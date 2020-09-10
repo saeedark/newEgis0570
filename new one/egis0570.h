@@ -16,8 +16,8 @@
  * Device endpoints
  */
 
-#define EGIS0570_EPOUT 0x04
-#define EGIS0570_EPIN  0x83
+#define EGIS0570_EPOUT 0x04 /* ( 4 | FPI_USB_ENDPOINT_OUT ) */
+#define EGIS0570_EPIN  0x83 /* ( 3 | FPI_USB_ENDPOINT_IN ) */
 
 /* 
  * Initialization packets (7 bytes each)
