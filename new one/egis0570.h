@@ -69,6 +69,8 @@ static unsigned char init_pkts[][EGIS0570_PKTSIZE] =
  * And the Size is different !!!
  */
 
+/*
+
 #define EGIS0570_INIT_TOTAL2 (sizeof((init_pkts2)) / sizeof((init_pkts2[0])))
 
 static unsigned char init_pkts2[][EGIS0570_PKTSIZE] =
@@ -99,6 +101,8 @@ static unsigned char init_pkts2[][EGIS0570_PKTSIZE] =
 	{0x45, 0x47, 0x49, 0x53, 0x01, 0x02, 0x2f},
 	{0x45, 0x47, 0x49, 0x53, 0x06, 0x00, 0xfe}
 };
+
+*/
 
 /*
  * After sending initial packets device returns image data (32512 bytes)

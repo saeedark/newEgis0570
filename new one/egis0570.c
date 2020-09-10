@@ -89,7 +89,6 @@ static void
 data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
 {
 	FpImageDevice *img_self = FP_IMAGE_DEVICE (dev);
-	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
 	if (error)
 	{
@@ -201,28 +200,6 @@ enum sm_states
 };
 
 static void 
-state_complete(FpiSsm *ssm, FpDevice *dev, gboolean img_free)
-{
-	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
-	
-	GError * error = fpi_ssm_get_error (ssm);
-	
-	if (img_free)
-		g_object_unref (self -> img);
-	self -> img = NULL;
-	self -> running = FALSE;
-	self -> retry = FALSE;
-
-	if (error)
-		fpi_image_device_session_error(dev, error);
-
-	if (self -> stop)
-		fpi_image_device_deactivate_complete(dev, NULL);
-
-	fpi_ssm_free(ssm);
-}
-
-static void 
 ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
@@ -260,7 +237,7 @@ ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 			break;
 
 		case SM_RESP:
-			if (is_last_pkt(self) == FALSE) 
+			if (is_last_pkt(dev) == FALSE) 
 			{
 				recv_cmd_resp(ssm, dev); 
 				++(self -> pkt_num);
@@ -276,7 +253,7 @@ ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 			break;
 
 		case SM_REC_DATA:
-			recv_data_resp(ssm, self); 
+			recv_data_resp(ssm, dev); 
 			break;
 
 		case SM_DONE:
@@ -334,8 +311,6 @@ static void
 dev_init (FpImageDevice *dev)
 {
 	GError *error = NULL;
-
-	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
 	g_usb_device_claim_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
 
