@@ -101,6 +101,8 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 	FpImage *capture_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT * EGIS0570_IMGCOUNT);
 	FpImage *select_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT);
 
+	select_img -> flags = FPI_IMAGE_COLORS_INVERTED; 
+
 	memcpy (capture_img -> data, transfer -> buffer, EGIS0570_IMGSIZE);
 
 	int where_is_finger = finger_status(capture_img);
@@ -114,7 +116,7 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 	else
 	{
 		fpi_image_device_report_finger_status (img_self, FALSE);
-		memcpy (select_img -> data, (transfer -> buffer) + ((EGIS0570_IMGCOUNT - 1) * EGIS0570_IMGSIZE), EGIS0570_IMGSIZE);  /* jsut selected the last picture */
+		memcpy (select_img -> data, transfer -> buffer , EGIS0570_IMGSIZE);  /* just selected the first picture */
 		fpi_image_device_image_captured (img_self, select_img);
 	}
 
