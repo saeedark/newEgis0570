@@ -33,8 +33,8 @@ is_last_pkt(FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-	int type = egdev -> pkt_type;
-	int num = egdev -> pkt_num;
+	int type = self -> pkt_type;
+	int num = self -> pkt_num;
 	
 	gboolean r;
 	
@@ -66,7 +66,7 @@ finger_status(FpImage * img)
 				max = img -> data[i];
 		}
 
-		if (total[k] > max_total_value):
+		if (total[k] > max_total_value)
 			max_total_id = k;
 	}
 
@@ -85,6 +85,10 @@ finger_status(FpImage * img)
  * SSM States
  */
 
+static void recv_data_resp(FpiSsm *ssm, FpDevice *dev);
+static void recv_cmd_resp(FpiSsm *ssm, FpDevice *dev);
+static void send_cmd_req(FpiSsm *ssm, FpDevice *dev, unsigned char *pkt);
+
 enum sm_states
 {
 	SM_START,
@@ -97,14 +101,14 @@ enum sm_states
 };
 
 static void 
-state_complete(Fpi_ssm *ssm, FpDevice *dev, gboolean img_free)
+state_complete(FpiSsm *ssm, FpDevice *dev, gboolean img_free)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
 	GError * error = fpi_ssm_get_error (ssm);
 	
 	if (img_free)
-		g_object_unref (self -> capture_img);
+		g_object_unref (self -> img);
 	self -> img = NULL;
 	self -> running = FALSE;
 	self -> retry = FALSE;
@@ -113,13 +117,13 @@ state_complete(Fpi_ssm *ssm, FpDevice *dev, gboolean img_free)
 		fpi_image_device_session_error(dev, error);
 
 	if (self -> stop)
-		fpi_image_device_deactivate_complete(dev);
+		fpi_image_device_deactivate_complete(dev, NULL);
 
 	fpi_ssm_free(ssm);
 }
 
 static void 
-ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
+ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
@@ -153,7 +157,7 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
 			break;
 
 		case SM_DATA:
-			recv_data_resp(ssm); //todo
+			recv_data_resp(ssm, self); //todo
 			break;
 
 		case SM_DATA_PROC:
@@ -169,7 +173,7 @@ ssm_run_state(Fpi_ssm *ssm, FpDevice *dev)
  */
 
 static void
-recv_data_resp(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
+data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
 {
 	FpImageDevice *self = FP_IMAGE_DEVICE (dev);
 	FpDeviceEgis0570 *img_self = FPI_DEVICE_EGIS0570 (dev);
@@ -194,10 +198,10 @@ recv_data_resp(FpiSsm *ssm, FpDevice *dev)
 {
 	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
 
-	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_INPSIZE3);
-	transfer->ssm = ssm;
+	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_INPSIZE);
+	transfer -> ssm = ssm;
 
-	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_resp_cb, NULL);
+	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, data_resp_cb, NULL);
 }
 
 static void
@@ -259,26 +263,31 @@ send_cmd_req(FpiSsm *ssm, FpDevice *dev, unsigned char *pkt)
  * Capture
  */
 
+static void fcheck_start(FpDevice *dev);
+
 static void 
 capture_run_state(FpiSsm *ssm, FpDevice *dev)
 {
 	FpImageDevice *imgdev = FP_IMAGE_DEVICE (dev);
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-	ssm_run_state(ssm);
+	ssm_run_state(ssm, self);
 
 	switch (fpi_ssm_get_cur_state (ssm))
 	{
 		case SM_START:
-			dev -> pkt_type = PKT_TYPE_REPEAT;
+			self -> pkt_type = PKT_TYPE_REPEAT;
 			break;
 
 		case SM_DATA_PROC:
-			FpImage *capture_img = self -> img;
+		{
+			FpImage *capture_img;
+			capture_img = self -> img;
 			fpi_image_device_report_finger_status (imgdev, FALSE);
 			fpi_image_device_image_captured (imgdev, capture_img);
 			fpi_ssm_next_state(ssm);
 			break;
+		}
 
 		default:
 			g_assert_not_reached ();
@@ -314,27 +323,29 @@ fcheck_run_state(FpiSsm *ssm, FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-	ssm_run_state(ssm);
+	ssm_run_state(ssm, self);
 
 	switch (fpi_ssm_get_cur_state (ssm))
 	{
 		case SM_START:
-			dev -> pkt_type = PKT_TYPE_REPEAT;
+			self -> pkt_type = PKT_TYPE_REPEAT;
 			break;
 
 		case SM_DATA_PROC:
-			int finger_state = finger_status(dev -> img);
+		{
+			int finger_state = finger_status(self -> img);
 			if (finger_state + 1) 
 			{
 				fpi_image_device_report_finger_status(dev, TRUE);
-				g_object_unref (self -> capture_img);
+				g_object_unref (self -> img);
 				self -> img = NULL;
 				fpi_ssm_next_state(ssm);
 			}
 			else
 				fpi_ssm_jump_to_state(ssm, SM_START);
 			break;
-
+		}
+		
 		default:
 			g_assert_not_reached ();
 	}
@@ -369,7 +380,7 @@ activation_run_states (FpiSsm *ssm, FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-	ssm_run_state(ssm, dev);
+	ssm_run_state(ssm, self);
 
 	switch (fpi_ssm_get_cur_state (ssm))
 	{
@@ -471,7 +482,7 @@ static const FpIdEntry id_table[] = {
 };
 
 static void
-fpi_device_egis0570_init (FpDeviceVcom5s *self)
+fpi_device_egis0570_init (FpDeviceEgis0570 *self)
 {
 }
 
