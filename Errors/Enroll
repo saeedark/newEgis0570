@@ -1,0 +1,1136 @@
+saeed@saeed-SF315-51G:~/Temp/Finger2/libfprint-master/builddir/examples$ sudo ./enroll 
+This program will enroll the selected finger, unconditionally overwriting any print for the same finger that was enrolled previously. If you want to continue, press enter, otherwise hit Ctrl+C
+
+Choose the finger to enroll:
+  [0] left thumb
+  [1] left index
+  [2] left middle
+  [3] left ring
+  [4] left little
+  [5] right thumb
+  [6] right index
+  [7] right middle
+  [8] right ring
+  [9] right little
+> 6
+(process:15491): libfprint-context-DEBUG: 18:44:58.334: No driver found for USB device 1D6B:0003
+(process:15491): libfprint-context-DEBUG: 18:44:58.334: No driver found for USB device 0BDA:0129
+(process:15491): libfprint-context-DEBUG: 18:44:58.334: No driver found for USB device 0BDA:5621
+(process:15491): libfprint-context-DEBUG: 18:44:58.335: No driver found for USB device 8087:0A2A
+(process:15491): libfprint-context-DEBUG: 18:44:58.335: No driver found for USB device 1D6B:0002
+Selected device 0 (Egis Technology Inc. (aka. LighTuning) 0570) claimed by egis0570 driver
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.450: Image device open completed
+(process:15491): libfprint-device-DEBUG: 18:44:58.450: Device reported open completion
+(process:15491): libfprint-device-DEBUG: 18:44:58.450: Completing action FPI_DEVICE_ACTION_OPEN in idle!
+Opened device. It's now time to enroll your finger.
+
+You will need to successfully scan your right index finger 5 times to complete the process.
+
+Scan your finger now.
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.452: Activating image device
+
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.452: [egis0570] SM_STATES_NUM entering state 0
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.452: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.452: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.452: Image device activation completed
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.453: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON
+
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.453: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.453: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.453: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.453: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.454: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.454: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.454: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.455: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.455: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.457: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.457: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.457: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.457: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.457: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.458: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.458: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.458: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.458: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.458: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.459: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.459: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.459: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.459: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.460: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.460: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.460: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.460: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.460: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.461: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.461: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.461: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.461: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.461: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.462: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.529: Finger status (min, max, biggest avg) : 118 : 250 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.530: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.530: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.530: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.530: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.530: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.530: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.531: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.531: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.531: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.531: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.531: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.532: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.598: Finger status (min, max, biggest avg) : 118 : 252 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.599: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.599: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.600: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.600: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.600: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.600: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.600: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.667: Finger status (min, max, biggest avg) : 118 : 252 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.668: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.668: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.668: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.668: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.668: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.668: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.669: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.737: Finger status (min, max, biggest avg) : 118 : 250 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.737: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.737: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.737: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.737: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.737: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.737: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.738: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.806: Finger status (min, max, biggest avg) : 118 : 252 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.806: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.806: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.806: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.806: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.806: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.806: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.807: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.874: Finger status (min, max, biggest avg) : 118 : 250 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.875: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.875: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.876: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.876: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.876: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.876: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.876: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:58.943: Finger status (min, max, biggest avg) : 118 : 250 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:58.943: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.944: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.945: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.945: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.945: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:58.945: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.012: Finger status (min, max, biggest avg) : 116 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.012: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.012: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.013: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.013: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.013: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.013: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.013: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.080: Finger status (min, max, biggest avg) : 118 : 250 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.080: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.080: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.080: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.080: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.081: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.081: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.081: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.081: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.081: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.082: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.082: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.082: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.149: Finger status (min, max, biggest avg) : 118 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.149: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.150: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.151: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.151: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.151: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.151: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.151: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.218: Finger status (min, max, biggest avg) : 118 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.218: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.218: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.218: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.218: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.219: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.219: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.219: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.219: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.220: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.220: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.220: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.220: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.287: Finger status (min, max, biggest avg) : 118 : 250 - 160
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.287: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.287: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.287: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.287: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.288: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.288: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.288: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.288: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.289: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.289: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.289: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.289: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.356: Finger status (min, max, biggest avg) : 118 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.356: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.356: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.356: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.356: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.357: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.357: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.357: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.357: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.358: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.358: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.358: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.358: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.425: Finger status (min, max, biggest avg) : 118 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.425: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.425: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.425: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.425: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.426: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.426: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.426: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.426: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.427: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.427: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.427: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.427: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.494: Finger status (min, max, biggest avg) : 120 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.494: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.494: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.494: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.494: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.495: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.496: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.496: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.563: Finger status (min, max, biggest avg) : 122 : 254 - 227
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.563: Image device reported finger status: on
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.563: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_CAPTURE
+
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.563: Image device internal state change from FPI_IMAGE_DEVICE_STATE_CAPTURE to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF
+
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.563: Image device captured an image
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.563: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.563: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.563: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.564: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.565: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-image-DEBUG: 18:44:59.567: Minutiae scan completed in 0.003598 secs
+(process:15491): libfprint-device-DEBUG: 18:44:59.567: Device reported enroll progress, reported 1 of 5 have been completed
+(process:15491): libfprint-DEBUG: 18:44:59.567: written to 'enrolled.pgm'
+Wrote scanned image to enrolled.pgm
+Enroll stage 1 of 5 passed. Yay!
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.567: Awaiting finger on
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.632: Finger status (min, max, biggest avg) : 152 : 254 - 231
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.632: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:44:59.632: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.632: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.632: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.632: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.632: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.633: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.701: Finger status (min, max, biggest avg) : 152 : 254 - 233
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.701: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:44:59.701: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.701: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.702: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.702: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.702: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.702: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.702: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.769: Finger status (min, max, biggest avg) : 154 : 254 - 233
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.769: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:44:59.769: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.769: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.769: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.769: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.770: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.770: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.770: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.770: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.770: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.771: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.771: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.771: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.838: Finger status (min, max, biggest avg) : 142 : 254 - 233
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.838: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:44:59.838: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.838: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.838: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.838: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.839: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.839: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.839: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.839: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.840: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.840: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.840: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.840: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.907: Finger status (min, max, biggest avg) : 122 : 252 - 164
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.907: Image device reported finger status: off
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.907: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON
+
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.907: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.908: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.909: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.909: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.909: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.909: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:44:59.976: Finger status (min, max, biggest avg) : 120 : 252 - 163
+(process:15491): libfprint-image_device-DEBUG: 18:44:59.976: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.976: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.976: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.977: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.977: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.977: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.977: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.977: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.978: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.978: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.978: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:44:59.978: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.045: Finger status (min, max, biggest avg) : 120 : 250 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.045: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.045: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.112: Finger status (min, max, biggest avg) : 120 : 252 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.112: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.112: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.113: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.113: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.113: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.179: Finger status (min, max, biggest avg) : 118 : 254 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.179: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.179: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.179: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.179: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.180: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.247: Finger status (min, max, biggest avg) : 120 : 252 - 161
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.247: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.247: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.248: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.249: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.249: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.249: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.249: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.316: Finger status (min, max, biggest avg) : 118 : 252 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.316: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.316: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.316: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.316: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.317: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.317: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.317: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.317: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.318: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.318: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.318: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.318: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.385: Finger status (min, max, biggest avg) : 120 : 254 - 230
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.385: Image device reported finger status: on
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.385: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_CAPTURE
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.386: Image device internal state change from FPI_IMAGE_DEVICE_STATE_CAPTURE to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.386: Image device captured an image
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.386: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.386: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.386: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.386: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.386: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.387: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-image-DEBUG: 18:45:00.394: Minutiae scan completed in 0.008135 secs
+(process:15491): libfprint-device-DEBUG: 18:45:00.394: Device reported enroll progress, reported 2 of 5 have been completed
+(process:15491): libfprint-DEBUG: 18:45:00.395: written to 'enrolled.pgm'
+Wrote scanned image to enrolled.pgm
+Enroll stage 2 of 5 passed. Yay!
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.395: Awaiting finger on
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.455: Finger status (min, max, biggest avg) : 154 : 254 - 234
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.455: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:00.455: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.455: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.455: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.455: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.457: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.524: Finger status (min, max, biggest avg) : 156 : 254 - 236
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.524: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:00.524: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.524: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.524: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.524: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.524: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.524: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.525: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.525: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.525: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.525: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.526: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.526: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.593: Finger status (min, max, biggest avg) : 156 : 254 - 237
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.593: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:00.593: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.593: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.593: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.593: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.594: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.594: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.594: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.594: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.594: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.595: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.595: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.595: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.662: Finger status (min, max, biggest avg) : 156 : 254 - 237
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.662: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:00.662: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.662: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.662: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.662: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.663: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.663: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.663: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.663: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.664: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.664: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.664: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.664: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.731: Finger status (min, max, biggest avg) : 124 : 254 - 233
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.732: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:00.732: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.732: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.733: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.733: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.733: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.733: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.733: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.800: Finger status (min, max, biggest avg) : 122 : 252 - 165
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.801: Image device reported finger status: off
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.801: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON
+
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.801: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.801: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.801: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.801: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.801: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.802: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.869: Finger status (min, max, biggest avg) : 122 : 252 - 164
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.869: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.869: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.869: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.869: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.869: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.869: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.870: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:00.937: Finger status (min, max, biggest avg) : 120 : 254 - 163
+(process:15491): libfprint-image_device-DEBUG: 18:45:00.937: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.937: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.937: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.937: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.938: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.938: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.938: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.938: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.939: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.939: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.939: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:00.939: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.006: Finger status (min, max, biggest avg) : 120 : 252 - 163
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.006: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.006: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.006: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.006: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.006: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.006: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.007: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.074: Finger status (min, max, biggest avg) : 120 : 250 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.074: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.074: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.074: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.074: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.075: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.075: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.075: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.075: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.076: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.076: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.076: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.076: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.143: Finger status (min, max, biggest avg) : 120 : 252 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.144: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.144: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.144: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.144: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.144: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.144: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.145: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.145: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.145: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.145: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.145: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.146: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.213: Finger status (min, max, biggest avg) : 120 : 252 - 162
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.213: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.213: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.213: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.213: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.214: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.215: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.215: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.282: Finger status (min, max, biggest avg) : 120 : 254 - 233
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.282: Image device reported finger status: on
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.282: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_CAPTURE
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.282: Image device internal state change from FPI_IMAGE_DEVICE_STATE_CAPTURE to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.282: Image device captured an image
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.282: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.282: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.282: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.283: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.284: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.284: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-image-DEBUG: 18:45:01.290: Minutiae scan completed in 0.007980 secs
+(process:15491): libfprint-device-DEBUG: 18:45:01.291: Device reported enroll progress, reported 3 of 5 have been completed
+(process:15491): libfprint-DEBUG: 18:45:01.291: written to 'enrolled.pgm'
+Wrote scanned image to enrolled.pgm
+Enroll stage 3 of 5 passed. Yay!
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.291: Awaiting finger on
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.351: Finger status (min, max, biggest avg) : 162 : 254 - 237
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.351: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.351: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.351: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.351: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.351: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.351: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.352: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.352: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.352: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.352: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.352: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.353: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.353: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.420: Finger status (min, max, biggest avg) : 164 : 254 - 238
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.420: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.420: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.420: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.420: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.420: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.421: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.421: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.421: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.421: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.421: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.422: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.422: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.422: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.489: Finger status (min, max, biggest avg) : 166 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.489: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.489: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.489: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.489: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.489: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.490: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.490: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.490: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.490: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.491: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.491: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.491: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.491: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.558: Finger status (min, max, biggest avg) : 164 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.558: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.559: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.559: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.560: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.560: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.560: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.560: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.560: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.628: Finger status (min, max, biggest avg) : 162 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.628: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.628: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.628: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.628: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.628: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.628: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.628: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.629: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.697: Finger status (min, max, biggest avg) : 164 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.697: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.697: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.697: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.697: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.697: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.697: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.697: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.698: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.698: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.698: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.698: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.699: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.699: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.766: Finger status (min, max, biggest avg) : 124 : 254 - 237
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.766: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:01.766: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.766: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.766: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.766: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.766: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.766: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.767: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.767: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.767: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.767: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.768: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.768: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.835: Finger status (min, max, biggest avg) : 122 : 254 - 167
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.835: Image device reported finger status: off
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.835: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON
+
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.835: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.835: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.835: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.835: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.835: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.836: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.836: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.836: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.836: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.837: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.837: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.904: Finger status (min, max, biggest avg) : 122 : 252 - 166
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.904: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.904: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.904: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.904: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.904: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.905: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.905: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.905: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.905: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.905: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.906: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.906: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:01.972: Finger status (min, max, biggest avg) : 120 : 252 - 166
+(process:15491): libfprint-image_device-DEBUG: 18:45:01.972: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.972: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:01.973: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.040: Finger status (min, max, biggest avg) : 120 : 252 - 164
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.040: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.040: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.040: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.040: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.041: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.041: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.041: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.041: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.041: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.042: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.042: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.042: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.109: Finger status (min, max, biggest avg) : 120 : 252 - 164
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.109: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.109: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.110: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.111: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.111: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.111: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.111: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.178: Finger status (min, max, biggest avg) : 120 : 252 - 164
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.178: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.178: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.178: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.179: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.179: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.179: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.179: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.179: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.180: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.180: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.180: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.247: Finger status (min, max, biggest avg) : 120 : 254 - 207
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.247: Image device reported finger status: on
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.248: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_CAPTURE
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.248: Image device internal state change from FPI_IMAGE_DEVICE_STATE_CAPTURE to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.248: Image device captured an image
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.248: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.248: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.248: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.248: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.248: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.249: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-image-DEBUG: 18:45:02.256: Minutiae scan completed in 0.008312 secs
+(process:15491): libfprint-device-DEBUG: 18:45:02.256: Device reported enroll progress, reported 4 of 5 have been completed
+(process:15491): libfprint-DEBUG: 18:45:02.257: written to 'enrolled.pgm'
+Wrote scanned image to enrolled.pgm
+Enroll stage 4 of 5 passed. Yay!
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.257: Awaiting finger on
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.316: Finger status (min, max, biggest avg) : 158 : 254 - 236
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.317: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.317: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.317: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.317: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.317: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.317: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.317: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.318: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.318: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.318: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.318: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.318: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.319: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.386: Finger status (min, max, biggest avg) : 160 : 254 - 238
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.386: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.386: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.386: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.386: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.386: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.386: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.386: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.387: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.387: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.387: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.387: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.388: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.388: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.455: Finger status (min, max, biggest avg) : 162 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.455: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.455: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.455: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.455: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.455: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.455: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.456: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.456: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.457: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.457: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.524: Finger status (min, max, biggest avg) : 162 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.524: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.524: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.524: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.524: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.524: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.525: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.525: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.525: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.525: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.526: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.526: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.526: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.526: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.593: Finger status (min, max, biggest avg) : 162 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.593: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.593: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.594: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.595: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.595: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.595: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.595: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.595: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.663: Finger status (min, max, biggest avg) : 162 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.663: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.663: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.663: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.663: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.663: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.663: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.663: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.664: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.664: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.664: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.664: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.665: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.665: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.732: Finger status (min, max, biggest avg) : 160 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.732: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.732: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.732: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.732: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.732: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.732: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.732: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.733: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.733: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.733: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.733: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.734: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.734: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.801: Finger status (min, max, biggest avg) : 160 : 254 - 239
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.801: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.801: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.801: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.801: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.801: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.801: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.802: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.802: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.802: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.802: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.802: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.803: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.803: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.870: Finger status (min, max, biggest avg) : 122 : 254 - 228
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.870: Image device reported finger status: on
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:02.870: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.870: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.870: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.870: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.871: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.871: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.871: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.871: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.872: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.872: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.872: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.872: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:02.939: Finger status (min, max, biggest avg) : 122 : 254 - 169
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.939: Image device reported finger status: off
+(process:15491): libfprint-image_device-DEBUG: 18:45:02.940: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON
+
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.940: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.941: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.941: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.941: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.941: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:02.941: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.008: Finger status (min, max, biggest avg) : 122 : 254 - 169
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.008: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.008: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.008: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.009: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.076: Finger status (min, max, biggest avg) : 122 : 252 - 167
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.076: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.076: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.077: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.078: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.078: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.078: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.078: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.145: Finger status (min, max, biggest avg) : 120 : 252 - 167
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.145: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.146: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.147: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.147: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.147: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.147: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.215: Finger status (min, max, biggest avg) : 120 : 250 - 166
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.215: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.215: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.215: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.215: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.215: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.215: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.216: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.283: Finger status (min, max, biggest avg) : 120 : 252 - 165
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.283: Image device reported finger status: off
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.283: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.284: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.285: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.285: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.285: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.285: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.352: Finger status (min, max, biggest avg) : 120 : 254 - 226
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.353: Image device reported finger status: on
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.353: Image device internal state change from FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_ON to FPI_IMAGE_DEVICE_STATE_CAPTURE
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.353: Image device internal state change from FPI_IMAGE_DEVICE_STATE_CAPTURE to FPI_IMAGE_DEVICE_STATE_AWAIT_FINGER_OFF
+
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.353: Image device captured an image
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.353: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.353: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.353: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.353: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.353: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 2
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 3
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.354: [egis0570] SM_STATES_NUM entering state 4
+(process:15491): libfprint-image-DEBUG: 18:45:03.361: Minutiae scan completed in 0.008015 secs
+(process:15491): libfprint-device-DEBUG: 18:45:03.361: Device reported enroll progress, reported 5 of 5 have been completed
+(process:15491): libfprint-DEBUG: 18:45:03.362: written to 'enrolled.pgm'
+Wrote scanned image to enrolled.pgm
+Enroll stage 5 of 5 passed. Yay!
+(process:15491): libfprint-device-DEBUG: 18:45:03.362: Device reported enroll completion
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.362: Deactivating image device
+
+(process:15491): libfprint-device-DEBUG: 18:45:03.362: Completing action FPI_DEVICE_ACTION_ENROLL in idle!
+(process:15491): libfprint-DEBUG: 18:45:03.362: Device has not storage, saving locally
+
+(process:15491): libfprint-WARNING **: 18:45:03.362: Error loading storage, assuming it is empty
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.421: Finger status (min, max, biggest avg) : 166 : 254 - 236
+(process:15491): libfprint-image_device-DEBUG: 18:45:03.422: Ignoring finger presence report as the device is not active!
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:03.422: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.422: [egis0570] SM_STATES_NUM entering state 5
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.422: [egis0570] SM_STATES_NUM entering state 1
+(process:15491): libfprint-egis0570-DEBUG: 18:45:03.422: deactivating, marking completed
+(process:15491): libfprint-SSM-DEBUG: 18:45:03.422: [egis0570] SM_STATES_NUM completed successfully
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:03.422: fpi_image_device_activate_complete: assertion 'priv->active == FALSE' failed
+

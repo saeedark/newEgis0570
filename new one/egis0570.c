@@ -48,7 +48,7 @@ is_last_pkt(FpDevice *dev)
 static int 
 finger_status(FpImage * img)
 {
-	size_t total[5] = {0, 0, 0, 0, 0};
+	size_t total[EGIS0570_IMGCOUNT] = {0, 0, 0, 0, 0};
 	size_t max_total_value = 0;
 	int max_total_id = 0;
 	unsigned char min, max;
@@ -77,7 +77,7 @@ finger_status(FpImage * img)
 	unsigned char avg = total[max_total_id] / EGIS0570_IMGSIZE;
 
 	int result  = -1;
-	if ((avg > EGIS0570_MIN_FINGER_PRESENT_AVG) && (min < EGIS0570_MAX_MIN)) /* ReThink on values */
+	if (avg > EGIS0570_MIN_FINGER_PRESENT_AVG) /* ReThink on values */
 		result = max_total_id;
 
 	fp_dbg("Finger status (min, max, biggest avg) : %d : %d - %d", min, max, avg);
@@ -120,11 +120,19 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 		memcpy (select_img -> data, (capture_img -> data) + ((where_finger_is) * EGIS0570_IMGSIZE), EGIS0570_IMGSIZE);
 		fpi_image_device_image_captured (img_self, select_img);
 	}
-	else
-	{
-		fpi_image_device_report_finger_status (img_self, FALSE);
-		memcpy (select_img -> data, capture_img -> data , EGIS0570_IMGSIZE);  /* just selected the first picture, it's better to be last one though */
-		fpi_image_device_image_captured (img_self, select_img);
+ 	else
+ 	{
+ 		fpi_image_device_report_finger_status (img_self, FALSE);
+ 		
+ 		/* just selecting the first picture, it's better to be last one though */
+
+ 		/*
+ 		memcpy (select_img -> data, capture_img -> data , EGIS0570_IMGSIZE);  
+ 		*/
+ 		
+ 		/*
+ 		fpi_image_device_image_captured (img_self, select_img);
+		*/	
 	}
 
 	fpi_ssm_next_state (transfer -> ssm);

@@ -1,0 +1,11 @@
+sensor picture on Acer Swift SF315-51G
+max :
+	height : 5.5 mm
+	width : 14 mm
+min :
+	height : 4 mm
+	width : 13 mm
+
+guess : 
+	height : 5.5 mm
+	width : 11 mm	

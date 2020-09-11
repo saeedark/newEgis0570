@@ -1,0 +1,7 @@
+(process:15491): libfprint-image_device-CRITICAL **: 18:44:59.632: fpi_image_device_image_captured: assertion 'priv->state == FPI_IMAGE_DEVICE_STATE_CAPTURE' failed
+
+(process:15491): libfprint-WARNING **: 18:45:03.362: Error loading storage, assuming it is empty
+
+(process:15491): libfprint-image_device-CRITICAL **: 18:45:03.422: fpi_image_device_activate_complete: assertion 'priv->active == FALSE' failed
+
+
