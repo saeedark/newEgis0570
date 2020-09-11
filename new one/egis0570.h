@@ -32,7 +32,7 @@
  * Sending last packet makes sensor return image
  */
 
-#define EGIS0570_TIMEOUT 1000
+#define EGIS0570_TIMEOUT 10000
 #define EGIS0570_PKTSIZE 7
 
 #define EGIS0570_INIT_TOTAL (sizeof((init_pkts)) / sizeof((init_pkts[0])))
@@ -145,7 +145,7 @@ static unsigned char repeat_pkts[][EGIS0570_PKTSIZE] =
  * foreget about security :))
  */
 
-#define EGIS0570_BZ3_THRESHOLD 10  
+#define EGIS0570_BZ3_THRESHOLD 3 /* and even less */
 
 #define EGIS0570_MAX_MIN 120
 #define EGIS0570_MIN_FINGER_PRESENT_AVG 130

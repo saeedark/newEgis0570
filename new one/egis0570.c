@@ -20,6 +20,7 @@ struct _FpDeviceEgis0570
 	int							pkt_type;
 
 	FpImage						*img;
+	FpImage						*five_img;
 };
 G_DECLARE_FINAL_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FPI, DEVICE_EGIS0570, FpImageDevice);
 G_DEFINE_TYPE (FpDeviceEgis0570, fpi_device_egis0570, FP_TYPE_IMAGE_DEVICE);
@@ -67,7 +68,10 @@ finger_status(FpImage * img)
 		}
 
 		if (total[k] > max_total_value)
+		{
+			max_total_value = total[k];
 			max_total_id = k;
+		}
 	}
 
 	unsigned char avg = total[max_total_id] / EGIS0570_IMGSIZE;
@@ -89,6 +93,7 @@ static void
 data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
 {
 	FpImageDevice *img_self = FP_IMAGE_DEVICE (dev);
+	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
 	if (error)
 	{
@@ -97,25 +102,28 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 		return;
 	}
 
-	FpImage *capture_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT * EGIS0570_IMGCOUNT);
-	FpImage *select_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT);
+	self -> five_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT * EGIS0570_IMGCOUNT);
+	self -> img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT);
+
+	FpImage *capture_img = self -> five_img;
+	FpImage *select_img = self -> img;
 
 	select_img -> flags = FPI_IMAGE_COLORS_INVERTED; 
 
-	memcpy (capture_img -> data, transfer -> buffer, EGIS0570_IMGSIZE);
+	memcpy (capture_img -> data, transfer -> buffer, EGIS0570_IMGSIZE * EGIS0570_IMGCOUNT);
 
-	int where_is_finger = finger_status(capture_img);
+	int where_finger_is = finger_status(capture_img);
 
-	if (where_is_finger + 1) 
+	if (where_finger_is > -1) 
 	{
 		fpi_image_device_report_finger_status (img_self, TRUE);
-		memcpy (select_img -> data, (transfer -> buffer) + ((where_is_finger) * EGIS0570_IMGSIZE), EGIS0570_IMGSIZE);
+		memcpy (select_img -> data, (capture_img -> data) + ((where_finger_is) * EGIS0570_IMGSIZE), EGIS0570_IMGSIZE);
 		fpi_image_device_image_captured (img_self, select_img);
 	}
 	else
 	{
 		fpi_image_device_report_finger_status (img_self, FALSE);
-		memcpy (select_img -> data, transfer -> buffer , EGIS0570_IMGSIZE);  /* just selected the first picture */
+		memcpy (select_img -> data, capture_img -> data , EGIS0570_IMGSIZE);  /* just selected the first picture, it's better to be last one though */
 		fpi_image_device_image_captured (img_self, select_img);
 	}
 
@@ -128,7 +136,9 @@ recv_data_resp(FpiSsm *ssm, FpDevice *dev)
 	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
 
 	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_INPSIZE);
+
 	transfer -> ssm = ssm;
+	transfer -> short_is_error = TRUE;
 
 	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, data_resp_cb, NULL);
 }
@@ -149,6 +159,7 @@ recv_cmd_resp(FpiSsm *ssm, FpDevice *dev)
 	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
 
 	fpi_usb_transfer_fill_bulk (transfer, EGIS0570_EPIN, EGIS0570_PKTSIZE);
+
 	transfer->ssm = ssm;
 
 	fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_resp_cb, NULL);
@@ -165,7 +176,7 @@ cmd_req_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *
 	else
 	{
 		fp_dbg ("request is not completed, %s", error->message);
-		fpi_ssm_mark_failed (transfer->ssm, error);
+		fpi_ssm_mark_failed (transfer -> ssm, error);
 		return;
 	}
 
@@ -178,6 +189,7 @@ send_cmd_req(FpiSsm *ssm, FpDevice *dev, unsigned char *pkt)
 	FpiUsbTransfer *transfer = fpi_usb_transfer_new (dev);
 
 	fpi_usb_transfer_fill_bulk_full (transfer, EGIS0570_EPOUT, pkt, EGIS0570_PKTSIZE, NULL);
+
 	transfer -> ssm = ssm;
 	transfer -> short_is_error = TRUE;
 
@@ -276,7 +288,9 @@ loop_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
 	g_object_unref (self -> img);
+	g_object_unref (self -> five_img);
 	self -> img = NULL;
+	self -> five_img = NULL;
 	self -> running = FALSE;
 
 	if (self -> stop)
@@ -291,10 +305,10 @@ dev_activate (FpImageDevice *dev)
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), ssm_run_state, SM_STATES_NUM);
 
-	self -> running = FALSE;
 	self -> stop	= FALSE;
 	self -> retry	= FALSE;
 	self -> img 	= NULL;
+	self -> five_img 	= NULL;
 
 	fpi_ssm_start (ssm, loop_complete);
 
