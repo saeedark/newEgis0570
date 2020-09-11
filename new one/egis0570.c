@@ -223,7 +223,8 @@ static void
 ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 {
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
-	
+	FpImageDevice *img_dev = FP_IMAGE_DEVICE (dev);
+
 	switch (fpi_ssm_get_cur_state (ssm))
 	{
 		case SM_INIT:
@@ -236,6 +237,7 @@ ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 			{
 			fp_dbg ("deactivating, marking completed");
 			fpi_ssm_mark_completed (ssm);
+			fpi_image_device_deactivate_complete (img_dev, NULL);
 			}
 			else
 			{
@@ -365,7 +367,10 @@ dev_deactivate (FpImageDevice *dev)
 	if (self -> running)
 		self -> stop = TRUE;
 	else
+	{
+		self -> running = FALSE;
 		fpi_image_device_deactivate_complete (dev, NULL);
+	}
 }
 
 /*
