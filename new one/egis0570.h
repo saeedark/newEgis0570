@@ -145,7 +145,7 @@ static unsigned char repeat_pkts[][EGIS0570_PKTSIZE] =
  * foreget about security :))
  */
 
-#define EGIS0570_BZ3_THRESHOLD 3 /* and even less */
+#define EGIS0570_BZ3_THRESHOLD 3 /* and even less What a joke */
 
 #define EGIS0570_MAX_MIN 120
 #define EGIS0570_MIN_FINGER_PRESENT_AVG 175

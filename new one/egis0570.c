@@ -14,7 +14,6 @@ struct _FpDeviceEgis0570
 
 	gboolean					running;
 	gboolean					stop;
-	gboolean					retry;
 
 	int							pkt_num;
 	int							pkt_type;
@@ -102,6 +101,14 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 		return;
 	}
 
+	/*
+	if (self -> five_img)
+		g_object_unref (self -> five_img);
+
+	if (self -> img)
+		g_object_unref (self -> img);
+	*/
+	
 	self -> five_img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT * EGIS0570_IMGCOUNT);
 	self -> img = fp_image_new (EGIS0570_IMGWIDTH, EGIS0570_IMGHEIGHT);
 
@@ -118,12 +125,18 @@ data_resp_cb(FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
 	{
 		fpi_image_device_report_finger_status (img_self, TRUE);
 		memcpy (select_img -> data, (capture_img -> data) + ((where_finger_is) * EGIS0570_IMGSIZE), EGIS0570_IMGSIZE);
-		fpi_image_device_image_captured (img_self, select_img);
+		if (!self -> stop)
+		{
+			fpi_image_device_report_finger_status (img_self, FALSE);
+			fpi_image_device_image_captured (img_self, select_img);
+		}
 	}
  	else
- 	{
+ 	{	
+ 		/*
  		fpi_image_device_report_finger_status (img_self, FALSE);
- 		
+ 		*/
+
  		/* just selecting the first picture, it's better to be last one though */
 
  		/*
@@ -278,7 +291,7 @@ ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 			recv_data_resp(ssm, dev); 
 			break;
 
-		case SM_DONE:
+		case SM_DONE:	
 			fpi_ssm_jump_to_state (ssm, SM_START);
 			break;
 
@@ -294,19 +307,18 @@ ssm_run_state(FpiSsm *ssm, FpDevice *dev)
 static void 
 loop_complete(FpiSsm *ssm, FpDevice *dev, GError *error)
 {
-	FpImageDevice *imgdev = FP_IMAGE_DEVICE (dev);
+	FpImageDevice *img_dev = FP_IMAGE_DEVICE (dev);
 	FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 	
 	g_object_unref (self -> img);
 	g_object_unref (self -> five_img);
+
 	self -> img = NULL;
 	self -> five_img = NULL;
 	self -> running = FALSE;
 
-	if (self -> stop)
-		fpi_image_device_activate_complete (imgdev, error);
-	else if (error)
-		fpi_image_device_session_error (imgdev ,error);
+	if (error)
+		fpi_image_device_session_error (img_dev ,error);
 }
 
 static void
@@ -316,7 +328,6 @@ dev_activate (FpImageDevice *dev)
 	FpiSsm *ssm = fpi_ssm_new (FP_DEVICE (dev), ssm_run_state, SM_STATES_NUM);
 
 	self -> stop	= FALSE;
-	self -> retry	= FALSE;
 	self -> img 	= NULL;
 	self -> five_img 	= NULL;
 
