@@ -22,6 +22,10 @@ but driver is working.
 Possible Solutions
 -------------
 Improve libfprint Algorithm 
+
+
 use this sensor as swipe_type
+
+
 mozaiking ?
 
