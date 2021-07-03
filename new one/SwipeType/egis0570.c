@@ -89,6 +89,7 @@ finger_status (guchar * img)
         result |= 1 << k;
     }
 
+  g_slist_free_full (total, g_free);
   fp_dbg ("Finger status (min, max, biggest avg) : %d : %d - %d", min, max, avg);
 
   return result;
