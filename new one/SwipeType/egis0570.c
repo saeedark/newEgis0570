@@ -89,7 +89,6 @@ finger_status (guchar * img)
         result |= 1 << k;
     }
 
-  g_slist_free_full (total, g_free);
   fp_dbg ("Finger status (min, max, biggest avg) : %d : %d - %d", min, max, avg);
 
   return result;
@@ -141,7 +140,6 @@ data_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GErro
   else
     {
       end = TRUE;
-      fpi_image_device_report_finger_status (img_self, FALSE);
     }
 
   if (end & (self->strips_len > 0))
@@ -156,8 +154,8 @@ data_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GErro
           g_slist_free_full (self->strips, g_free);
           self->strips = NULL;
           self->strips_len = 0;
-          fpi_image_device_report_finger_status (img_self, FALSE);
           fpi_image_device_image_captured (img_self, img);
+          fpi_image_device_report_finger_status (img_self, FALSE);
         }
     }
 
@@ -185,6 +183,7 @@ cmd_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError
       fp_dbg ("bad answer, %s", error->message);
       fpi_ssm_mark_failed (transfer->ssm, error);
     }
+  
 }
 
 static void
@@ -261,6 +260,7 @@ ssm_run_state (FpiSsm *ssm, FpDevice *dev)
       if (self->stop)
         {
           fp_dbg ("deactivating, marking completed");
+          self->running = FALSE;
           fpi_ssm_mark_completed (ssm);
           fpi_image_device_deactivate_complete (img_dev, NULL);
         }
@@ -363,6 +363,8 @@ dev_deinit (FpImageDevice *dev)
 {
   GError *error = NULL;
 
+  /* should free leaking erea here */
+
   g_usb_device_release_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
 
   fpi_image_device_close_complete (dev, error);
@@ -383,7 +385,6 @@ dev_deactivate (FpImageDevice *dev)
     }
   else
     {
-      self->running = FALSE;
       fpi_image_device_deactivate_complete (dev, NULL);
     }
 }
