@@ -15,15 +15,5 @@ Repository Content
 
 Current state
 -------------
-memory leak is the issue. + sensor size is small + libfprint Algorithm sadly won't work at all.
-but driver is working.
-
-
-Possible Solutions
--------------
-Improve libfprint Algorithm 
-
-use this sensor as swipe_type
-
-mozaiking ?
-
+Swipe Type Implementation is completed and added to fprint Repository.
+Press Type also is completed but Matching Algorithm is no ready yet.
