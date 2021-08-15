@@ -137,11 +137,6 @@ static unsigned char init_pkts[][EGIS0570_PKTSIZE] =
 #define EGIS0570_IMGSIZE 6498
 #define EGIS0570_IMGWIDTH 114
 #define EGIS0570_IMGHEIGHT 57
-
-/* size of middle area that is used from each frame */
-#define EGIS0570_RFMGHEIGHT 17
-/* rows to ignore from top and bottom of the image*/
-#define EGIS0570_RFMDIS (EGIS0570_IMGHEIGHT - EGIS0570_RFMGHEIGHT) / 2
 #define EGIS0570_IMGCOUNT 5
 
 /*
@@ -169,9 +164,10 @@ static unsigned char repeat_pkts[][EGIS0570_PKTSIZE] =
 
 #define EGIS0570_BZ3_THRESHOLD 25 /* and even less What a joke */
 
-#define EGIS0570_MIN_MEAN 20
+#define EGIS0570_MIN_MEAN 200
+#define EGIS0570_ON_PIXEL 210
+#define EGIS0570_COVER 140 /* 114 columns + 57 rows = 171*/
 #define EGIS0570_MARGIN 3
-
 #define EGIS0570_RESIZE 2
 
 #endif

@@ -1,3 +1,23 @@
+/*
+ * Egis Technology Inc. (aka. LighTuning) 0570 driver for libfprint
+ * Copyright (C) 2021 Maxim Kolesnikov <kolesnikov@svyazcom.ru>
+ * Copyright (C) 2021 Saeed/Ali Rk <saeed.ali.rahimi@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 #ifndef __EGIS0570_H
 
 #define __EGIS0570_H 1
@@ -5,9 +25,6 @@
 /*
  * Device data
  */
-
-#define EGIS0570_VID 0x1c7a  /* Vendor  */
-#define EGIS0570_PID 0x0570  /* Product */
 
 #define EGIS0570_CONF 1
 #define EGIS0570_INTF 0
@@ -120,8 +137,11 @@ static unsigned char init_pkts[][EGIS0570_PKTSIZE] =
 #define EGIS0570_IMGSIZE 6498
 #define EGIS0570_IMGWIDTH 114
 #define EGIS0570_IMGHEIGHT 57
+
+/* size of middle area that is used from each frame */
 #define EGIS0570_RFMGHEIGHT 17
-#define EGIS0570_RFMDIS 20
+/* rows to ignore from top and bottom of the image*/
+#define EGIS0570_RFMDIS (EGIS0570_IMGHEIGHT - EGIS0570_RFMGHEIGHT) / 2
 #define EGIS0570_IMGCOUNT 5
 
 /*
@@ -149,7 +169,9 @@ static unsigned char repeat_pkts[][EGIS0570_PKTSIZE] =
 
 #define EGIS0570_BZ3_THRESHOLD 25 /* and even less What a joke */
 
-#define EGIS0570_MAX_MIN 120
-#define EGIS0570_MIN_FINGER_PRESENT_AVG 175
+#define EGIS0570_MIN_MEAN 20
+#define EGIS0570_MARGIN 3
+
+#define EGIS0570_RESIZE 2
 
 #endif

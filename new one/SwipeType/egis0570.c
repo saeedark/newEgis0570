@@ -1,3 +1,23 @@
+/*
+ * Egis Technology Inc. (aka. LighTuning) 0570 driver for libfprint
+ * Copyright (C) 2021 Maxim Kolesnikov <kolesnikov@svyazcom.ru>
+ * Copyright (C) 2021 Saeed/Ali Rk <saeed.ali.rahimi@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
 #define FP_COMPONENT "egis0570"
 
 #include "egis0570.h"
@@ -16,6 +36,7 @@ struct _FpDeviceEgis0570
   gboolean      stop;
 
   GSList       *strips;
+  guint8       *background;
   gsize         strips_len;
 
   int           pkt_num;
@@ -57,39 +78,56 @@ is_last_pkt (FpDevice *dev)
   return r;
 }
 
+/*
+ * Returns a bit for each frame on whether or not a finger has been detected.
+ * e.g. 00110 means that there is a finger in frame two and three.
+ */
 static char
-finger_status (guchar * img)
+postprocess_frames (FpDeviceEgis0570 *self, guint8 * img)
 {
-  size_t total[EGIS0570_IMGCOUNT] = {0, 0, 0, 0, 0};
-  unsigned char min, max;
+  size_t mean[EGIS0570_IMGCOUNT] = {0, 0, 0, 0, 0};
 
-  min = max = img[0];
-
-  for (size_t k = 0; k < EGIS0570_IMGCOUNT; ++k)
+  if (!self->background)
     {
-      for (size_t i = ((k * EGIS0570_IMGSIZE) + EGIS0570_RFMDIS * EGIS0570_IMGWIDTH); i < (((k + 1) * EGIS0570_IMGSIZE) - EGIS0570_RFMDIS * EGIS0570_IMGWIDTH); ++i)
+      self->background = g_malloc (EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT);
+      memset (self->background, 255, EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT);
+
+      for (size_t k = 0; k < EGIS0570_IMGCOUNT; k += 1)
         {
-          total[k] += img[i];
+          guint8 * frame = &img[(k * EGIS0570_IMGSIZE) + EGIS0570_RFMDIS * EGIS0570_IMGWIDTH];
 
-          if (img[i] < min)
-            min = img[i];
-
-          if (img[i] > max)
-            max = img[i];
+          for (size_t i = 0; i < EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT; i += 1)
+            self->background[i] = MIN (self->background[i], frame[i]);
         }
+
+      return 0;
     }
 
-  unsigned char avg = 0;
+  for (size_t k = 0; k < EGIS0570_IMGCOUNT; k += 1)
+    {
+      guint8 * frame = &img[(k * EGIS0570_IMGSIZE) + EGIS0570_RFMDIS * EGIS0570_IMGWIDTH];
+
+      for (size_t i = 0; i < EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT; i += 1)
+        {
+          if (frame[i] - EGIS0570_MARGIN  > self->background[i])
+            frame[i] -= self->background[i];
+          else
+            frame[i] = 0;
+
+          mean[k] += frame[i];
+        }
+
+      mean[k] /= EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT;
+    }
+
   char result = 0;
 
-  for (size_t k = 0; k < EGIS0570_IMGCOUNT; ++k)
+  for (size_t k = 0; k < EGIS0570_IMGCOUNT; k += 1)
     {
-      avg = total[k] / (EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT);
-      if (avg > EGIS0570_MIN_FINGER_PRESENT_AVG)           /* ReThink on values */
+      fp_dbg ("Finger status (picture number, mean) : %ld , %ld", k, mean[k]);
+      if (mean[k] > EGIS0570_MIN_MEAN)
         result |= 1 << k;
     }
-
-  fp_dbg ("Finger status (min, max, biggest avg) : %d : %d - %d", min, max, avg);
 
   return result;
 }
@@ -108,32 +146,38 @@ data_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GErro
 
   if (error)
     {
-      fp_dbg ("request is not completed, %s", error->message);
       fpi_ssm_mark_failed (transfer->ssm, error);
       return;
     }
 
-  int where_finger_is = finger_status (transfer->buffer);
+  int where_finger_is = postprocess_frames (self, transfer->buffer);
 
   if (where_finger_is > 0)
     {
+      FpiImageDeviceState state;
+
       fpi_image_device_report_finger_status (img_self, TRUE);
-      for (size_t k = 0; k < EGIS0570_IMGCOUNT; ++k)
+
+      g_object_get (dev, "fpi-image-device-state", &state, NULL);
+      if (state == FPI_IMAGE_DEVICE_STATE_CAPTURE)
         {
-          if (where_finger_is & (1 << k))
+          for (size_t k = 0; k < EGIS0570_IMGCOUNT; k += 1)
             {
-              struct fpi_frame *stripe = g_malloc (EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT + sizeof (struct fpi_frame));
-              stripe->delta_x = 0;
-              stripe->delta_y = 0;
-              stripdata = stripe->data;
-              memcpy (stripdata, (transfer->buffer) + (((k) * EGIS0570_IMGSIZE) + EGIS0570_IMGWIDTH * EGIS0570_RFMDIS), EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT);
-              self->strips = g_slist_prepend (self->strips, stripe);
-              self->strips_len++;
-            }
-          else
-            {
-              end = TRUE;
-              break;
+              if (where_finger_is & (1 << k))
+                {
+                  struct fpi_frame *stripe = g_malloc (EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT + sizeof (struct fpi_frame));
+                  stripe->delta_x = 0;
+                  stripe->delta_y = 0;
+                  stripdata = stripe->data;
+                  memcpy (stripdata, (transfer->buffer) + (((k) * EGIS0570_IMGSIZE) + EGIS0570_IMGWIDTH * EGIS0570_RFMDIS), EGIS0570_IMGWIDTH * EGIS0570_RFMGHEIGHT);
+                  self->strips = g_slist_prepend (self->strips, stripe);
+                  self->strips_len += 1;
+                }
+              else
+                {
+                  end = TRUE;
+                  break;
+                }
             }
         }
     }
@@ -142,9 +186,9 @@ data_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GErro
       end = TRUE;
     }
 
-  if (end & (self->strips_len > 0))
+  if (end)
     {
-      if (!self->stop)
+      if (!self->stop && (self->strips_len > 0))
         {
           FpImage *img;
           self->strips = g_slist_reverse (self->strips);
@@ -154,9 +198,11 @@ data_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GErro
           g_slist_free_full (self->strips, g_free);
           self->strips = NULL;
           self->strips_len = 0;
-          fpi_image_device_image_captured (img_self, img);
-          fpi_image_device_report_finger_status (img_self, FALSE);
+          FpImage *resizeImage = fpi_image_resize (img, EGIS0570_RESIZE, EGIS0570_RESIZE);
+          fpi_image_device_image_captured (img_self, resizeImage);
         }
+
+      fpi_image_device_report_finger_status (img_self, FALSE);
     }
 
   fpi_ssm_next_state (transfer->ssm);
@@ -179,11 +225,7 @@ static void
 cmd_resp_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
 {
   if (error)
-    {
-      fp_dbg ("bad answer, %s", error->message);
-      fpi_ssm_mark_failed (transfer->ssm, error);
-    }
-  
+    fpi_ssm_mark_failed (transfer->ssm, error);
 }
 
 static void
@@ -196,24 +238,6 @@ recv_cmd_resp (FpiSsm *ssm, FpDevice *dev)
   transfer->ssm = ssm;
 
   fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_resp_cb, NULL);
-
-}
-
-static void
-cmd_req_cb (FpiUsbTransfer *transfer, FpDevice *dev, gpointer user_data, GError *error)
-{
-  if (!error)
-    {
-      fpi_ssm_next_state (transfer->ssm);
-    }
-  else
-    {
-      fp_dbg ("request is not completed, %s", error->message);
-      fpi_ssm_mark_failed (transfer->ssm, error);
-      return;
-    }
-
-
 }
 
 static void
@@ -226,7 +250,7 @@ send_cmd_req (FpiSsm *ssm, FpDevice *dev, unsigned char *pkt)
   transfer->ssm = ssm;
   transfer->short_is_error = TRUE;
 
-  fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, cmd_req_cb, NULL);
+  fpi_usb_transfer_submit (transfer, EGIS0570_TIMEOUT, NULL, fpi_ssm_usb_transfer_cb, NULL);
 }
 
 /*
@@ -260,13 +284,11 @@ ssm_run_state (FpiSsm *ssm, FpDevice *dev)
       if (self->stop)
         {
           fp_dbg ("deactivating, marking completed");
-          self->running = FALSE;
           fpi_ssm_mark_completed (ssm);
           fpi_image_device_deactivate_complete (img_dev, NULL);
         }
       else
         {
-          self->running = TRUE;
           self->pkt_num = 0;
           fpi_ssm_next_state (ssm);
         }
@@ -283,7 +305,7 @@ ssm_run_state (FpiSsm *ssm, FpDevice *dev)
       if (is_last_pkt (dev) == FALSE)
         {
           recv_cmd_resp (ssm, dev);
-          ++(self->pkt_num);
+          self->pkt_num += 1;
           fpi_ssm_jump_to_state (ssm, SM_REQ);
         }
       else
@@ -318,8 +340,8 @@ loop_complete (FpiSsm *ssm, FpDevice *dev, GError *error)
   FpImageDevice *img_dev = FP_IMAGE_DEVICE (dev);
   FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
-  //deallocation here
   self->running = FALSE;
+  g_clear_pointer (&self->background, g_free);
 
   if (error)
     fpi_image_device_session_error (img_dev, error);
@@ -363,8 +385,6 @@ dev_deinit (FpImageDevice *dev)
 {
   GError *error = NULL;
 
-  /* should free leaking erea here */
-
   g_usb_device_release_interface (fpi_device_get_usb_device (FP_DEVICE (dev)), 0, 0, &error);
 
   fpi_image_device_close_complete (dev, error);
@@ -380,13 +400,9 @@ dev_deactivate (FpImageDevice *dev)
   FpDeviceEgis0570 *self = FPI_DEVICE_EGIS0570 (dev);
 
   if (self->running)
-    {
-      self->stop = TRUE;
-    }
+    self->stop = TRUE;
   else
-    {
-      fpi_image_device_deactivate_complete (dev, NULL);
-    }
+    fpi_image_device_deactivate_complete (dev, NULL);
 }
 
 /*
@@ -394,8 +410,9 @@ dev_deactivate (FpImageDevice *dev)
  */
 
 static const FpIdEntry id_table[] = {
-  { .vid = EGIS0570_VID, .pid = EGIS0570_PID, },
-  { .vid = 0,                .pid = 0,    .driver_data = 0 },                   /* terminating entry */
+  { .vid = 0x1c7a, .pid = 0x0570, },
+  { .vid = 0x1c7a, .pid = 0x0571, },
+  { .vid = 0,      .pid = 0, },
 };
 
 static void
